@@ -8,7 +8,7 @@ const Contacts = ({contacts, onDelete}) => {
     return (
     <div>
         <ul className={style.list}>
-            { contacts.length !== 0 
+            { contacts.length > 0 
                 ? contacts.map((contact) => 
                         <li 
                         className={style.item}
@@ -29,7 +29,11 @@ const Contacts = ({contacts, onDelete}) => {
 }
 
 Contacts.PropsTypes = {
-    contacts:PropsTypes.node.isRequired,
+    contacts:PropsTypes.node={
+        id:PropsTypes.string,
+        name:PropsTypes.string.isRequired,
+        number:PropsTypes.string.isRequired
+    },
     onDelete:PropsTypes.func.isRequired,
 }
 
